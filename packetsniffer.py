@@ -39,7 +39,9 @@ def main():
             elif proto == 17:
                 src_port, dest_port, length, data = udp_segment(data)
                 print("UDP Segment")
-                print("source port: {}, destination port: {}, length: {}".format(src_port, dest_port, length, data))
+                print("source port: {}, destination port: {}, length: {}".format(src_port, dest_port, length))
+                print("data:")
+                print(data)
 
             else:
                 print("data:")
@@ -48,7 +50,7 @@ def main():
         else:
             print("data:")
             print(data)
-            
+
 # unpack ethernet frames
 def ethernet_frame(data):
     dest_mac, src_mac, proto = struct.unpack('! 6s 6s H', data[:14])
